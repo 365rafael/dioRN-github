@@ -7,12 +7,19 @@ const colorDarkFontGithub = '#4F565E'
 const imageProfileGithub= 'https://avatars.githubusercontent.com/u/97065934?v=4'
 
 const urlToMyGithub = 'https://github.com/365rafael'
+const urlToMyLinkedIn = 'https://www.linkedin.com/in/rafael-arantes-06a6325b/'
 const App = () => {
 
     const handlePressGoToGithub = async() =>{
         const res = await Linking.canOpenURL(urlToMyGithub);
         if (res){
           await  Linking.openURL(urlToMyGithub)
+        }
+    }
+    const handlePressGoToLinkedIn = async() =>{
+        const res = await Linking.canOpenURL(urlToMyLinkedIn);
+        if (res){
+          await  Linking.openURL(urlToMyLinkedIn)
         }
     }
   return (
@@ -28,6 +35,11 @@ const App = () => {
         <Pressable onPress={handlePressGoToGithub}>
         <View style={style.button}>
             <Text style={[style.defaultText, style.textButton]}>Open in Github</Text>
+        </View>
+        </Pressable>
+        <Pressable onPress={handlePressGoToLinkedIn}>
+        <View style={style.button}>
+            <Text style={[style.defaultText, style.textButton]}>Open in LinkedIn</Text>
         </View>
         </Pressable>
       </View>
